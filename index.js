@@ -1,8 +1,10 @@
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
-})
+export default {
+  async fetch(request, env) {
+    return handleRequest(request, env)
+  }
+}
 
-async function handleRequest(request) {
+async function handleRequest(request, env) {
   // 读取环境变量中的转发目的地
   const FORWARD_URL = env.FORWARD_URL
 
